@@ -13,4 +13,7 @@ router.get('/Book', function(req, res, next) {
   res.render('Book');
 });
 
+router.get('/home', function(req, res, next){
+ res.render('home');
+})
 module.exports = router;
