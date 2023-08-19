@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="booking.css">
+		<title></title>
+		<style>
+			td{text-align: center;}
+			div{font-family:fantasy;font-size: larger;}
+		</style>
+        <script type="text/javascript">
+            var i, j; var seatNo;
+            var countSeatArr = new Array(); var countSeat = 0;
+            var removeSeatArr = new Array(); var removeSeat = 0;
+            var charArr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J' ,'K','L','M','N','O'];
+            //poster
+            var imageItem = localStorage.getItem("movie");
+
+            //seat color
+
+
+
+            function showColor() {
+
+							  if(localStorage.getItem("showDay")!=null){
+									document.getElementById(localStorage.getItem("showDay")).style.backgroundColor="green";
+								}
+								if(localStorage.getItem("showTime")!=null){
+									document.getElementById(localStorage.getItem("showTime")).style.backgroundColor="green";
+								}
+                document.getElementById("value4000").style.backgroundColor = "yellow";
+                document.getElementById("value5000").style.backgroundColor = "gold";
+                document.getElementById("value6000").style.backgroundColor = "orange";
+                document.getElementById("Not Available").style.backgroundColor = "#33D7FF";
+
+                for (i = 0; i < 10; i++) {
+                    seatNo = charArr[i];
+                    for (j = 1; j < 7; j++) {
+                        if (seatNo == 'A' || seatNo == 'B' || seatNo == 'C') {
+                            document.getElementById(seatNo + j).style.backgroundColor = "yellow";
+                        }
+                        else if (seatNo == 'H' || seatNo == 'I' || seatNo == 'J') {
+                            document.getElementById(seatNo + j).style.backgroundColor = "gold";
+                        }
+                        else {
+                            document.getElementById(seatNo + j).style.backgroundColor = "orange";
+                        }
+                        
+                    }
+                }
+            }
+            window.onload = function () { showColor(); };
+
+        </script>
+
+	</head>
+	<body style="background-color:grey;">
+		<script type="text/javascript">
+
+			//booking
+			function take(seat){
+				if(document.getElementById(seat).style.backgroundColor=="green") 
+				{
+					localStorage.removeItem(seat);
+					removeSeatArr[removeSeat]=seat;removeSeat++;
+					var ch=seat.charAt(0);
+					if (ch == 'A' || ch == 'B' || ch == 'C') 
+					{ 
+						document.getElementById(seat).style.backgroundColor = "yellow"; 
+					}
+					else if (ch == 'H' || ch == 'I' || ch == 'J') 
+					{ 
+						document.getElementById(seat).style.backgroundColor = "gold"; 
+				    }
+					else { document.getElementById(seat).style.backgroundColor = "orange"; }
+				}
+				else {
+				    if (localStorage.getItem(seat) != null) {
+				        alert("Not Available");
+				    }
+					else {
+					document.getElementById(seat).style.backgroundColor="green";
+					localStorage.setItem(seat,seat);
+					countSeatArr[countSeat]=seat;countSeat++;
+					}
+				}
+
+			}
+
+			//Show Not Available Seats
+			function ShowNotAvailable() {
+			    for (i = 0; i < 10; i++) {
+			        for (j = 1; j < 11; j++) {
+			            var seatNumber = charArr[i] + j;
+			            if (localStorage.getItem(seatNumber) != null) {
+			                document.getElementById(seatNumber).style.backgroundColor = "#ff8080";
+			            }
+			        }
+			    }
+			}
+			//Mark day and time
+			function befMarkDate(showD){
+				document.getElementById(localStorage.getItem("showDay")).style.backgroundColor="white";
+				markDate(showD);
+			}
+			function markDate(showDay){
+			    localStorage.setItem("showDay", showDay);
+					document.getElementById(localStorage.getItem("showDay")).style.backgroundColor="red";
+
+			}
+			function befMarkTime(showT){
+				document.getElementById(localStorage.getItem("showTime")).style.backgroundColor="white";
+				markTime(showT);
+			}
+			function markTime(showTime){
+			    localStorage.setItem("showTime", showTime);
+					document.getElementById(localStorage.getItem("showTime")).style.backgroundColor="red";
+			}
+
+			function showSeatArray() {
+			    alert(countSeatArr);
+			    alert(removeSeatArr);
+			}
+			//receipt
+ 		 function receipt(){
+ 			 var tprice=0;
+ 			 var arr=new Array();
+			 var f;
+			 for(f=0;f<removeSeatArr.length;f++){
+				 for(var g=0;g<countSeatArr.length;g++){
+					 if(countSeatArr[g]==removeSeatArr[f]) {
+						 countSeatArr[g]="hi";
+						 break;
+				 }
+			 }
+		 }
+			 var cnt=0;
+ 			 for(f=0;f<countSeatArr.length;f++){
+				 if(countSeatArr[f]!="hi"){
+
+ 				 arr[cnt]=countSeatArr[f];
+				 cnt++;
+			 }
+ 			//	arr[f]="hello";
+		}
+		var slicearr=new Array(arr.length);
+		for(f=0;f<arr.length;f++){
+			slicearr[f]=arr[f].slice(0,1);
+		}
+ 			 for(f=0;f<arr.length;f++){
+ 				 if(slicearr[f]=='A' || slicearr[f]=='B' || slicearr[f]=='C') tprice+=60000;
+ 				 else if(slicearr[f]=='D' || slicearr[f]=='E' ||slicearr[f]=='F' || slicearr[i]=='G') tprice+=50000;
+ 				 else  if(slicearr[f]=='H' || slicearr[f]=='I' || slicearr[f]=='J')tprice+=45000;
+ 			 }
+ 			 document.getElementById('movie').innerHTML = imageItem;
+ 		 document.getElementById('seat').innerHTML = arr;
+		 document.getElementById('date').innerHTML = localStorage.getItem('showDay');
+		 document.getElementById('time').innerHTML = localStorage.getItem('showTime');
+ 		  document.getElementById('price').innerHTML = tprice;
+			document.getElementById('uname').innerHTML = localStorage.getItem('name');
+ 	 }
+
+		</script>
+		<div class="header">
+ 			<h1 class="logo">BUS Ticket</h1>
+ 					<ul class="menu">
+ 							<a href="home.html">Home</a>
+ 							
+ 							<a href="login.html">Log in</a>
+ 					</ul>
+ 	</div><br>
+
+		
+
+		<br>
+        <br />
+		<label color="blue"> Choose Time</label>
+		<input type="button" id="9:00AM" value="9:00AM" onclick="Time('9:00AM')">     <input type="button" id="12:00PM" value="12:00PM" onclick="Time('12:00PM')">
+		<input type="button" id="3:30PM" value="3:30PM" onclick="Time('3:30PM')">     <input type="button" id="6:00PM" value="6:00PM" onclick="Time('6:00PM')">
+		<input type="button" id="9:00PM" value="9:00PM" onclick="Time('9:00PM')">
+
+		<br><br>
+		<div class="split left" style="background-color:#96C6C6;"><center>
+        <input type="button" id="value4000" value="60000">
+		<input type="button" id="value5000" value="50000">
+		<input type="button" id="value6000" value="45000">
+		<input type="button" id="Not Available" value="Not Available" onclick="ShowNotAvailable()">
+		<input type="button" value="Booking" onclick="receipt();"/></center>
+		<br>
+
+ 		<center>
+		<table>
+			<tr><td><input type="button" value="  A1  " id="A1" onclick="take('A1')"></td>
+				<td><input type="button" value="  A2  " id="A2" onclick="take('A2')"></td>
+				<td><input type="button" value="  A3  " id="A3" onclick="take('A3')"></td>
+				<td><input type="button" value="  A4  " id="A4" onclick="take('A4')"></td>
+                <td><input type="button" value="  A5  " id="A5" onclick="take('A5')"></td>
+                <td><input type="button" value="  A6  " id="A6" onclick="take('A6')"></td>
+                </td>
+				
+			</tr>
+
+			<tr><td><input type="button" value="  B1  " id="B1" onclick="take('B1')"></td>
+				<td><input type="button" value="  B2  " id="B2" onclick="take('B2')"></td>
+				<td><input type="button" value="  B3  " id="B3" onclick="take('B3')"></td>
+				<td><input type="button" value="  B4  " id="B4" onclick="take('B4')"></td>
+                <td><input type="button" value="  B5  " id="B5" onclick="take('B5')"></td>
+                <td><input type="button" value="  B6  " id="B6" onclick="take('B6')"></td>
+				</tr>
+
+			<tr><td><input type="button" value="  C1  " id="C1" onclick="take('C1')"></td>
+				<td><input type="button" value="  C2  " id="C2" onclick="take('C2')"></td>
+				<td><input type="button" value="  C3  " id="C3" onclick="take('C3')"></td>
+				<td><input type="button" value="  C4  " id="C4" onclick="take('C4')"></td>
+                <td><input type="button" value="  C5  " id="C5" onclick="take('C5')"></td>
+                <td><input type="button" value="  C6  " id="C6" onclick="take('C6')"></td>
+                
+				
+			</tr>
+
+			<tr><td><input type="button" value="  D1  " id="D1" onclick="take('D1')"></td>
+				<td><input type="button" value="  D2  " id="D2" onclick="take('D2')"></td>
+				<td><input type="button" value="  D3  " id="D3" onclick="take('D3')"></td>
+				<td><input type="button" value="  D4  " id="D4" onclick="take('D4')"></td>
+				<td><input type="button" value="  D5  " id="D5" onclick="take('D5')"></td>
+                <td><input type="button" value="  D6  " id="D6" onclick="take('D6')"></td>
+			</tr>
+
+			<tr><td><input type="button" value="  E1  " id="E1" onclick="take('E1')"></td>
+				<td><input type="button" value="  E2  " id="E2" onclick="take('E2')"></td>
+				<td><input type="button" value="  E3  " id="E3" onclick="take('E3')"></td>
+				<td><input type="button" value="  E4  " id="E4" onclick="take('E4')"></td>
+                <td><input type="button" value="  E5  " id="E5" onclick="take('E5')"></td>
+                <td><input type="button" value="  E6  " id="E6" onclick="take('E6')"></td>
+				
+			</tr>
+
+			<tr><td><input type="button" value="  F1  " id="F1" onclick="take('F1')"></td>
+				<td><input type="button" value="  F2  " id="F2" onclick="take('F2')"></td>
+				<td><input type="button" value="  F3  " id="F3" onclick="take('F3')"></td>
+				<td><input type="button" value="  F4  " id="F4" onclick="take('F4')"></td>
+                <td><input type="button" value="  F5  " id="F5" onclick="take('F5')"></td>
+                <td><input type="button" value="  F6  " id="F6" onclick="take('F6')"></td>
+				
+				</tr>
+
+			<tr><td><input type="button" value="  G1  " id="G1" onclick="take('G1')"></td>
+				<td><input type="button" value="  G2  " id="G2" onclick="take('G2')"></td>
+				<td><input type="button" value="  G3  " id="G3" onclick="take('G3')"></td>
+				<td><input type="button" value="  G4  " id="G4" onclick="take('G4')"></td>
+                <td><input type="button" value="  G5  " id="G5" onclick="take('G5')"></td>
+                <td><input type="button" value="  G6  " id="G6" onclick="take('G6')"></td>
+				
+			</tr>
+
+			<tr><td><input type="button" value="  H1  " id="H1" onclick="take('H1')"></td>
+				<td><input type="button" value="  H2  " id="H2" onclick="take('H2')"></td>
+				<td><input type="button" value="  H3  " id="H3" onclick="take('H3')"></td>
+				
+				
+			</tr>
+
+			
+		</table>
+    </center><br>
+
+		</div>
+		
+        <center>
+		<div class="split right" id="a" style="background-color:#96C6C6;">
+		    <div id="uname"></div>
+		    <div id="movie"></div>
+			Selected Seats : <div id="seat"></div>
+			Date : <div id="date"></div>
+			Time : <div id="time"></div>
+			Price : <div id="price"></div>
+       </div>
+		</center>
+		</div>
+        </body>
+</html>

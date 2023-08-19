@@ -9,6 +9,9 @@ router.get('/user/info', function(req, res, next) {
 router.get('/trip', function(req, res, next) {
   res.render('trip');
 });
+router.get('/Book', function(req, res, next) {
+  res.render('Book');
+});
 
 router.get('/home', function(req, res, next){
  res.render('home');
