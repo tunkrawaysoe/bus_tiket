@@ -427,6 +427,16 @@ fieldset p{
     background-color: #00ced1;
     border: #00ced1;
 }
+/*form container*/
+.formcontainer{
+    width: 800px;
+    height: 500px;
+    background: #a5a3a3;
+    border-radius: 5px;
+    margin-top: 90px;
+
+
+}
 @media (max-width:1048px){
 .logo{
     font-size: 32px;
