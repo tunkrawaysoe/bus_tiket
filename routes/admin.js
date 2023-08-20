@@ -1,6 +1,12 @@
 var express = require('express');
 var router = express.Router();
 var userModel = require('../model/user_model');
+
+/* GET ADMIN LOGIN PAGE */
+router.get('/admin/login', function(req, res){
+  res.render('admin/admin_login')
+})
+
 /* GET home page. */
 router.get('/admin/travel/route', function(req, res, next) {
   res.render('admin/travel_route');
