@@ -1,8 +1,39 @@
 var {connection} = require('./db_connection')
+var moment = require('moment');
 
+exports.bookingList = (callback) => {
+    var query = 'SELECT user_table.name, route_table.start_location, route_table.end_location, route_table.departure_date, route_table.departure_time FROM ' +
+    'ticket_table '+
+    ' INNER JOIN user_table ON ticket_table.user_id = user_table.user_id '+
+   ' INNER JOIN route_table ON ticket_table.route_id = route_table.route_id '
+   connection.query(query, function(err, result){
+    if(err){
+        callback(err, null);
+    }else{
+        const modifiedData = result.map(event => ({
+            ...event,
+            departure_date: moment(new Date(event.departure_date)).calendar()
+          }));
+
+          console.log("Modei", modifiedData)
+        callback(null, modifiedData);
+    }
+   })
+}
 
 exports.addUser = (data, callback) => {
     connection.query('INSERT INTO user_table SET ?', [ data ], function(err, result){
+        if(err){
+            callback(err, null);
+        }else{
+            console.log("result", result)
+            callback(null, result);
+        }
+    })
+}
+
+exports.createTicket = (data, callback) => {
+    connection.query('INSERT INTO ticket_table SET ?', [ data ], function(err, result){
         if(err){
             callback(err, null);
         }else{
@@ -19,12 +50,10 @@ exports.filterRouter = (searchData, callback) => {
     }else{
          query = 'SELECT * FROM route_table WHERE start_location = ? and end_location = ?';
     }
-    connection.query(query, 
-    [searchData.start_location, searchData.end_location, searchData.departure_date ], function(err, result){
+    connection.query(query, [searchData.start_location, searchData.end_location, searchData.departure_date ], function(err, result){
         if(err){
             callback(err, null);
         }else{
-            console.log("result", result)
             callback(null, result);
         }
     }

@@ -44,44 +44,43 @@
       <ul class="nav nav-pills nav-stacked">
         
         <li><a href="/admin/bus/lists">Bus List</a></li>
-        <li><a href="#section3">Add Route</a></li>
-        <li><a href="/admin/route/list">Route List</a></li>
-        <li class="active"><a href="/admin/user/list">Booking List</a></li>
+        <li><a href="">Add Route</a></li>
+        <li class="active"><a href="/admin/route/list">Route List</a></li>
+        <li ><a href="/admin/user/list">Booking List</a></li>
       </ul><br>
       
     </div>
 
     <div class="col-sm-9">
-        <h2> Passenger List</h2>
+        <h2> Route List</h2>
         <div class="p-4">
-            <table id="userTable" class=" display table table-dark table-striped w-100">
+            <table id="route_list" class=" display table table-dark table-striped w-100">
                 <thead>
                     <tr>
-                        <th> Name </th>
-                        <th> From</th>
-                        <th>To</th>
-                        <th>Departure Date</th>
-                        <th>Departure Time</th>
-                        <th>Actions</th>
+                        <th> routeid </th>
+                        <th> start_location</th>
+                        <th>end_location</th>
+                        <th>price</th>
+                        <th>departure_time</th>
+                        <th>departure_date</th>
+                        <th>bus_id</th>
                     </tr>
                     
                 </thead>
                 <tbody>
-                    <% result.forEach((data) => {   %> 
                     <tr>
-                        <td><%=data.name%></td>
-                        <td><%=data.start_location %></td>
-                        <td><%= data.end_location%></td>
-                        <td><%= data.departure_date%></td>
-                        <td><%= data.departure_time%></td>
-                        <td> 
-                            <button class="btn btn-outline-success"> Confirm</button>
-                        </td>
+                        <td>Lwin</td>
+                        <td>Male</td>
+                        <td>ls@gmail.com</td>
+                        <td>sittwe</td>
+                        <td>09.....</td>
+                        <td>sittwe</td>
+                        <td>09.....</td>
                     </tr>
-                    <% }) %>
                 </tbody>
             </table>
         </div>
+    
         </div>
       </div>
     </div>
@@ -92,13 +91,12 @@
   <p>Footer Text</p>
 </footer>
 
-   
-    <script src="/DataTables/datatables.min.js"></script>
-   
+<script src="/DataTables/datatables.min.js"></script>
 <script>
-    let table = new DataTable('#userTable', {
+    let table = new DataTable('#route_list', {
     // config options...
     });
 </script>
+   
 </body>
 </html>

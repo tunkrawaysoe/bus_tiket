@@ -27,6 +27,17 @@
         <div class="bar line3"></div>
     </div>
 </nav>
+
+<%  if(noResult == true){ %>
+    <div class="card mx-3">
+        <h5 class="card-header text-center">Sorry</h5>
+        <div class="card-body">
+          <h5 class="card-title text-center">Trip not found</h5>
+        
+          
+        </div>
+      </div>
+    <% } %>
 <% result.forEach((data) => {   %>
 <div class="card mx-3">
     <h5 class="card-header"><%= data.start_location %> to <%= data.end_location %></h5>

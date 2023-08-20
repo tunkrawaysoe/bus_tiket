@@ -34,10 +34,10 @@ span{
     float: right;
     margin-right: 30px;
 }
-nav ul{
+/* nav ul{
     float: right;
     margin-right: 30px;
-} */
+} */ 
 .menuList{
    display: inline-block;
    margin: 0 20px;
