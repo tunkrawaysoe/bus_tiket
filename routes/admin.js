@@ -10,6 +10,11 @@ router.get('/admin/travel/route', function(req, res, next) {
 router.get('/admin/user/list', function(req, res, next) {
   res.render('admin/user_list');  
 });
+/* Get route additon. */
+router.get('/admin/route/additon', function(req, res, next) {
+  res.render('admin/add_route');  
+});
+
 
 
 
