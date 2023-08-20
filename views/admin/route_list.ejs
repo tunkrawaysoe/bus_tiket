@@ -57,26 +57,28 @@
             <table id="route_list" class=" display table table-dark table-striped w-100">
                 <thead>
                     <tr>
-                        <th> routeid </th>
+     
                         <th> start_location</th>
                         <th>end_location</th>
                         <th>price</th>
                         <th>departure_time</th>
                         <th>departure_date</th>
-                        <th>bus_id</th>
+                        <th>bus_number</th>
                     </tr>
                     
                 </thead>
                 <tbody>
+                    <% result.forEach((data) => {   %> 
                     <tr>
-                        <td>Lwin</td>
-                        <td>Male</td>
-                        <td>ls@gmail.com</td>
-                        <td>sittwe</td>
-                        <td>09.....</td>
-                        <td>sittwe</td>
-                        <td>09.....</td>
+                        <td><%=data.start_location%></td>
+                        <td><%=data.end_location%></td>
+                        <td><%=data.price%></td>
+                        <td><%=data.departure_time%></td>
+                        <td><%=data.departure_date%></td>
+                        <td><%=data.bus_number%></td>
+                        
                     </tr>
+                    <% }) %>
                 </tbody>
             </table>
         </div>

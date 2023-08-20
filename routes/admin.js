@@ -36,7 +36,21 @@ router.get('/admin/route/addition', function(req, res, next) {
 });
 /* Get route table. */
 router.get('/admin/route/list', function(req, res, next) {
-  res.render('admin/route_list');  
+  var noResult = false;
+  userModel.routeList(function(err,result){
+    if(err){
+      console.log("err", err);
+      res.send(err)
+    }else{
+      if(result.length < 1){
+        noResult = true;
+      }
+
+      res.render('admin/route_list',{
+        result, noResult
+      }); 
+    } 
+  })
 });
 
 

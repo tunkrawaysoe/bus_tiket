@@ -21,6 +21,29 @@ exports.bookingList = (callback) => {
    })
 }
 
+
+exports.routeList = (callback) => {
+    var query = 'SELECT * FROM bus.route_table'+
+    ' INNER JOIN bus_table on bus_table.bus_id =  route_table.bus_id; '
+    connection.query(query,function(err,result){
+        if(err){
+            callback(err,null);
+        }
+        else{
+            const modifiedData = result.map(event => ({
+                ...event,
+                departure_date: moment(new Date(event.departure_date)).calendar()
+              }));
+    
+              console.log("Modei", modifiedData)
+            callback(null, modifiedData);
+        }
+    })
+    
+
+
+}
+
 exports.addUser = (data, callback) => {
     connection.query('INSERT INTO user_table SET ?', [ data ], function(err, result){
         if(err){
