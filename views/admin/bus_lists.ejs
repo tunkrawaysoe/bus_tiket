@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/DataTables/datatables.min.css">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+    <h2> Bus List</h2>
+    <div class="p-4">
+        <table id="bus_lists" class=" display table table-dark table-striped w-100">
+            <thead>
+                <tr>
+                    <th> bus_id </th>
+                    <th> bus_name</th>
+                    <th>bus_number</th>
+                    <th>capacity</th>
+                    <th>model</th>
+                </tr>
+                
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Transport_U1</td>
+                    <td>RKE-1234</td>
+                    <td>45</td>
+                    <td>2009</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/DataTables/jQuery-3.7.0/jquery-3.7.0.min.js"></script>
+    <script src="/DataTables/datatables.min.js"></script>
+<script>
+    let table = new DataTable('#bus_lists', {
+    // config options...
+    });
+</script>
+</body>
+</html>

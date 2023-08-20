@@ -10,7 +10,10 @@ router.get('/admin/travel/route', function(req, res, next) {
 router.get('/admin/user/list', function(req, res, next) {
   res.render('admin/user_list');  
 });
-
+/* Get bus table. */
+router.get('/admin/bus/lists', function(req, res, next) {
+  res.render('admin/bus_lists');  
+});
 
 
 
