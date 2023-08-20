@@ -2,7 +2,7 @@ var {connection} = require('./db_connection')
 var moment = require('moment');
 
 exports.bookingList = (callback) => {
-    var query = 'SELECT user_table.name, route_table.start_location, route_table.end_location, route_table.departure_date, route_table.departure_time FROM ' +
+    var query = 'SELECT ticket_table.ticket_id,ticket_table.status, user_table.name, route_table.start_location, route_table.end_location, route_table.departure_date, route_table.departure_time FROM ' +
     'ticket_table '+
     ' INNER JOIN user_table ON ticket_table.user_id = user_table.user_id '+
    ' INNER JOIN route_table ON ticket_table.route_id = route_table.route_id '
@@ -98,4 +98,44 @@ exports.filterRouter = (searchData, callback) => {
         }
     }
     )
+}
+
+exports.addRoute = (data, callback) => {
+    connection.query("Insert into route_table set ?", [ data ], function(err, result){
+        if(err){
+            callback(err, null);
+        }else{
+            callback(null, result);
+        }
+    })
+}
+
+exports.confirmTicket = (id , callback) => {
+    connection.query("update ticket_table set status = 1 where ticket_id = ?", [ id ], function(err, result){
+        if(err){
+            callback(err, null);
+        }else{
+            callback(null, result);
+        }
+    })
+}
+
+exports.denyTicket = (id , callback) => {
+    connection.query("update ticket_table set status = 0 where ticket_id = ?", [ id ], function(err, result){
+        if(err){
+            callback(err, null);
+        }else{
+            callback(null, result);
+        }
+    })
+}
+
+exports.deleteTicket = (id , callback) => {
+    connection.query("DELETE FROM ticket_table WHERE ticket_id = ?", [ id ], function(err, result){
+        if(err){
+            callback(err, null);
+        }else{
+            callback(null, result);
+        }
+    })
 }

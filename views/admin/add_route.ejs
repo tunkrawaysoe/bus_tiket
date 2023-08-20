@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
     <script src="/bootstrap/js/bootstrap.min.js"></script>
     <script src="/DataTables/jQuery-3.7.0/jquery-3.7.0.min.js"></script>
+    <link rel="stylesheet" href="/vendor/select2/css/select2.min.css">
   <style>
     /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
     .row.content {height: 1500px}
@@ -54,39 +55,55 @@
       
         <h2>Route Additon</h2>
         
-        <form>
+        <form method="post" action="/admin/route/add">
           
           <div class="form-group">
             <label for="slocation">Start Location</label>
-            <input type="text" class="form-control" id="slocation">
+            <select class="js-example-basic-single form-control form-select" name="start_location">
+              <option value="" selected></option>
+              <option value="Sittwe">Sittwe</option>
+              <option value="Yangon">Yangon</option>
+           <option value="Ann">Ann</option>
+           <option value="Mraukoo">Mrauk_oo</option>
+            </select>
           </div>
           <div class="form-group">
             <label for="elocation">End Location:</label>
-            <input type="text" class="form-control" id="elocation">
+            <select class="js-example-basic-single form-control form-select" name="end_location">
+              <option value="" selected></option>
+              <option value="Sittwe">Sittwe</option>
+              <option value="Yangon">Yangon</option>
+              <option value="Ann">Ann</option>
+              <option value="Mraukoo">Mrauk_oo</option>
+            </select>
           </div>
           <div class="form-group">
               <label for="price">Price:</label>
-              <input type="number" class="form-control" id="price">
+              <input type="number" class="form-control" id="price" name="price">
             </div>
             
             <div class="form-group">
               <label for="dtime">Departture Time:</label>
-              <input type="time" class="form-control" id="dtime">
+              <input type="time" class="form-control" id="dtime" name="departure_time">
             </div>
             <div class="form-group">
               <label for="dpdate">Departure Date:</label>
-              <input type="date" class="form-control" id="dpdate">
+              <input type="date" class="form-control" id="dpdate" name="departure_date">
             </div>
             <div class="form-group">
               <label for="busid">Bus Id</label>
-              <input type="number" class="form-control" id="busid">
+              <select class=" form-control form-select" name="bus_id">
+                <option value="" selected></option>
+                <option value="1">Transport_U1</option>
+                <option value="2">Transport_U2</option>
+                <option value="3">Transport_U3</option>
+                <option value="4">Transport_U4</option>
+              </select>
             </div>
             <div class="form-group w-100">
               <input type="submit" class=" btn-outline-success w-100" value="ADD"></input>
             </div>
         </form>
-    
-  
         </div>
       </div>
     </div>
@@ -96,7 +113,11 @@
 <footer class="container-fluid">
   <p>Footer Text</p>
 </footer>
-
-   
+<script src="/vendor/select2/js/select2.full.min.js"></script>
+<script>
+    $(document).ready(function() {
+            $('.js-example-basic-single').select2();
+        })
+</script>
 </body>
 </html>

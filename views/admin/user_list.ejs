@@ -62,9 +62,10 @@
                         <th>To</th>
                         <th>Departure Date</th>
                         <th>Departure Time</th>
-                        <th>Actions</th>
+                        <th>Status</th>
+                        <th>Confirm/Deny</th>
+                        <th>Action</th>
                     </tr>
-                    
                 </thead>
                 <tbody>
                     <% result.forEach((data) => {   %> 
@@ -74,8 +75,29 @@
                         <td><%= data.end_location%></td>
                         <td><%= data.departure_date%></td>
                         <td><%= data.departure_time%></td>
-                        <td> 
-                            <button class="btn btn-outline-success"> Confirm</button>
+                        <th>
+
+                          <% if(data.status == 0){ %>
+                            <span class="badge badge-danger">unpaid</span>
+                          <%}else{ %>
+                            <span class="badge badge-success">paid</span>
+                           <% } %>
+                        </th>
+                        <td>  
+                          <% if(data.status == 0){ %>
+                            <a href="/admin/user/confirm/<%= data.ticket_id %>" class="btn btn-outline-success"> 
+                              Confirm
+                            </a>
+                          <%}else{ %>
+                            <a href="/admin/user/deny/<%= data.ticket_id %>" class="btn btn-outline-success"> 
+                              Deny
+                            </a>
+                           <% } %>
+                        </td>
+                        <td>
+                          <a href="/admin/user/delete/<%= data.ticket_id %>" class="btn btn-outline-success"> 
+                            Delete
+                          </a>
                         </td>
                     </tr>
                     <% }) %>

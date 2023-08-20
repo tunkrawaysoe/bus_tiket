@@ -18,7 +18,6 @@ router.get('/admin/user/list', function(req, res, next) {
         noResult = true;
       }
 
-      console.log("Result", result)
       res.render('admin/user_list',{
         result, noResult
       });  
@@ -26,6 +25,7 @@ router.get('/admin/user/list', function(req, res, next) {
   })
   
 });
+
 /* Get bus table. */
 router.get('/admin/bus/lists', function(req, res, next) {
   var noResult=false;
@@ -46,10 +46,12 @@ router.get('/admin/bus/lists', function(req, res, next) {
   })
  
 });
+
 /* Get route additon. */
 router.get('/admin/route/addition', function(req, res, next) {
   res.render('admin/add_route');  
 });
+
 /* Get route table. */
 router.get('/admin/route/list', function(req, res, next) {
   var noResult = false;
@@ -69,8 +71,54 @@ router.get('/admin/route/list', function(req, res, next) {
   })
 });
 
+// adding route from backend
+router.post('/admin/route/add', function(req, res){
+  userModel.addRoute(req.body, function(err, result){
+    if(err){
+      console.log("err", err)
+      res.send(err);
+    }else{
+      res.redirect('/admin/route/list');
+    }
+  })
+})
 
 
+// for user confirm and status change
+router.get('/admin/user/confirm/:ticket_id', function(req, res){
+  var ticket_id = req.params.ticket_id;
+  userModel.confirmTicket(ticket_id, function(err, result){
+    if(err){
+      res.send(err);
+    }else{
+      res.redirect('/admin/user/list');
+    }
+  })
+})
+
+// for user deny and status change
+router.get('/admin/user/deny/:ticket_id', function(req, res){
+  var ticket_id = req.params.ticket_id;
+  userModel.denyTicket(ticket_id, function(err, result){
+    if(err){
+      res.send(err);
+    }else{
+      res.redirect('/admin/user/list');
+    }
+  })
+})
+
+// for user delete and status change
+router.get('/admin/user/delete/:ticket_id', function(req, res){
+  var ticket_id = req.params.ticket_id;
+  userModel.deleteTicket(ticket_id, function(err, result){
+    if(err){
+      res.send(err);
+    }else{
+      res.redirect('/admin/user/list');
+    }
+  })
+})
 
 
 module.exports = router;
