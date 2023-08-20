@@ -19,4 +19,10 @@ router.get('/home', function(req, res, next){
 router.get('/homepage', function(req, res, next){
   res.render('index');
  })
+ router.get('/register', function(req, res, next){
+  res.render('booking');
+ })
+ router.get('/homepage/detail', function(req, res, next){
+  res.render('semore');
+ })
 module.exports = router;

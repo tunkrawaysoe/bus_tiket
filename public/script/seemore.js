@@ -1,0 +1,15 @@
+menubar.addEventListener("click",()=>{
+    if(ultag.classList.contains("moveul")){
+    ultag.classList.remove("moveul");
+    line1.classList.remove("rotate");
+    line2.classList.remove("opt");
+    line3.classList.remove("rotate2");
+    }
+    else{
+        ultag.classList.add("moveul");
+    line1.classList.add("rotate");
+    line2.classList.add("opt");
+    line3.classList.add("rotate2");
+    }
+console.log("helloword");
+});
