@@ -105,46 +105,45 @@
 <form action="/route/search" method="POST">
     <div class="row mx-auto my-5 p-5 justify-content-center">
         <div class="col-lg-2 col-12 from_groupContainer  ">
-            <div class="form-group">
+            
                 <label for="exampleFormControlFile1">From</label>
-                <select class="js-example-basic-single form-control form-select" name="start_location">
+                <select class=" inputcontrol" name="start_location">
                     <option value="" selected></option>
                     <option value="Sittwe">Sittwe</option>
                     <option value="Yangon">Yangon</option>
                  <option value="Ann">Ann</option>
                  <option value="Mraukoo">Mrauk_oo</option>
                   </select>
-              </div>
-         
+              
         </div>
         <div class="col-lg-2 col-12 from_groupContainer">
-            <div class="form-group">
+           
                 <label for="exampleFormControlFile1">To</label>
-                <select class="js-example-basic-single form-control form-select" name="end_location">
+                <select class=" inputcontrol" name="end_location">
                     <option value="" selected></option>
                     <option value="Sittwe">Sittwe</option>
                     <option value="Yangon">Yangon</option>
                     <option value="Ann">Ann</option>
                     <option value="Mraukoo">Mrauk_oo</option>
                   </select>
-              </div>
+              
          
         </div>
         <div class="col-lg-2 col-12 from_groupContainer">
-            <div class="form-group">
+           
                 <label for="exampleFormControlFile1">Departure Date</label>
-               <input type="date" name="departure_date" id="date" class="form-input ">
-              </div>
+               <input type="date" name="departure_date" id="date" class="form-input inputcontrol">
+            
         </div>
         <div class="col-lg-2 col-12 from_groupContainer">
-            <div class="form-group">
+           
                 <label for="exampleFormControlFile1">Quantity</label>
-              <input type="number" name="quantity" id="">
-              </div>
+              <input type="number"class="inputcontrol" name="quantity" id="">
+
         </div>
         <div class="col-lg-2 col-12r from_groupContainer">
-            <label for=""></label>
-            <input type="submit" value="search">
+            <label for="exampleFormControlFile1">search the trip</label>
+            <input type="submit" value="search" class="inputcontrol">
         </div>
     </div>
 </form>
