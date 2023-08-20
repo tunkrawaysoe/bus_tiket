@@ -39,7 +39,7 @@ router.get('/admin/bus/lists', function(req, res, next) {
       }
 
       console.log("Result", result)
-      res.render('admin/bus_list',{
+      res.render('admin/bus_lists',{
         result, noResult
       });  
     }

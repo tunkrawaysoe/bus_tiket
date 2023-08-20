@@ -57,22 +57,23 @@
         <table id="bus_lists" class=" display table table-dark table-striped w-100">
             <thead>
                 <tr>
-                    <th> bus_id </th>
-                    <th> bus_name</th>
-                    <th>bus_number</th>
-                    <th>capacity</th>
-                    <th>model</th>
+                    <th> Bus Number </th>
+                    <th> Bus Name</th>
+                    <th>Capacity</th>
+                    <th>Model</th>
                 </tr>
                 
             </thead>
             <tbody>
+              <% result.forEach((data) =>{ %>
                 <tr>
-                    <td>1</td>
-                    <td>Transport_U1</td>
-                    <td>RKE-1234</td>
-                    <td>45</td>
-                    <td>2009</td>
+                   
+                    <td><%= data.bus_number %></td>
+                    <td><%= data.bus_name %></td>
+                    <td><%= data.capacity %></td>
+                    <td><%= data.model %></td>
                 </tr>
+                <% }) %>
             </tbody>
         </table>
     </div>

@@ -47,16 +47,14 @@ exports.routeList = (callback) => {
 exports.bus_list=(callback) => {
  var query= 'SELECT * from bus_table'
 
- connection.query(query,function(err,result){
- {
+ connection.query(query, function(err,result){
     if(err){
         callback(err,null);
     }
     else{
         callback(null,result)
     }
-    
- }
+ })
 }
 
 
