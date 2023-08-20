@@ -30,11 +30,15 @@ nav{
 span{
     color:#00ced1;
 }
-ul{
+.menuContainer{
     float: right;
     margin-right: 30px;
 }
-li{
+nav ul{
+    float: right;
+    margin-right: 30px;
+} */
+.menuList{
    display: inline-block;
    margin: 0 20px;
    line-height: 80px;
@@ -207,9 +211,23 @@ form{
     margin-right: auto;
     flex-wrap: wrap;
     justify-content: space-around;
-    width: 80%;
+    width: 100%;
     border-radius: 10px;
     background:#575454 ;
+}
+    .from_groupContainer{
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+.form_group{
+    position: absolute;
+    width: 120px;
+}
+.from_groupContainer .form_group input{
+    position: absolute;
 }
 .fromcity,.tocity,.datebox,.travellertype{
     display:inline;
@@ -220,7 +238,7 @@ form{
 }
 
 
-input,.traveller{
+/* input,.traveller{
    
     padding: 10px 30px;
     margin: 10px 50px;
@@ -244,7 +262,7 @@ input[type=submit]:hover{
     border-color: #00ced1;
     cursor: pointer;
     
-}
+} */
 h3{
     margin: 5px 50px;
 }
@@ -432,7 +450,7 @@ fieldset p{
     font-size: 32px;
     padding:60px;
 }
-ul{
+.menuContainer{
     margin-right:30px ;
 }
 a{
@@ -459,7 +477,7 @@ a{
         display: block;
        
     }
-    ul{
+    .menuContainer{
         float:right;
         height: 100vh;
         margin-top:80px;
@@ -476,7 +494,7 @@ a{
         transform:translateX(-200px);
         
     }
-    li{
+    .menuList{
         display: block;
         margin: 50px 0;
         width: 150px;

@@ -41,8 +41,29 @@ router.get('/homepage', function(req, res, next){
  router.get('/homepage/searchdata', function(req, res, next){
   res.render('search_data');
  })
+
  router.get('/homepage/booking', function(req, res, next){
   res.render('booking');
+ })
+
+ router.post('/route/search', function(req, res){
+  var searchData = req.body;
+  console.log("search Data", searchData);
+  userModel.filterRouter(searchData, function(err, result){
+    if(err){
+      console.log("err", err)
+      return res.send("Fail");
+    }else{
+      return res.render('search_data', {
+        result
+      })
+    }
+  })
+ })
+
+ router.get('/user/register/:id', function(req, res) {
+   var route_id = req.params.id;
+   res.render('user_info');
  })
 
 module.exports = router;

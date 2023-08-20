@@ -5,18 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://kit.fontawesome.com/4e66fe9cce.js" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/vendor/select2/css/select2.min.css">
     <link rel="stylesheet" href="/stylesheets/index.css">
 </head>
 <body>
     <nav class="headsection">
         <label class="logo">Transport<span>U</span></label>
-    <ul>
+    <ul class="menuContainer">
         
-        <li><a href="http://">Home</a></li>
-        <li><a href="http://">BUS</a></li>
-        <li><a href="http://">SHIP</a></li>
-        <li><a href="http://">PLANE</a></li>
-        <li><a href="http://">ABOUT US</a></li>
+        <li class="menuList"><a href="http://">Home</a></li>
+        <li class="menuList"><a href="http://">BUS</a></li>
+        <li class="menuList"><a href="http://">SHIP</a></li>
+        <li class="menuList"><a href="http://">PLANE</a></li>
+        <li class="menuList"><a href="http://">ABOUT US</a></li>
         
     </ul>
     <div class="menubar">
@@ -99,18 +102,67 @@
             </fieldset>
         </div>
     </div>
-<div class="searchbox">
+<form action="/route/search" method="POST">
+    <div class="row mx-auto my-5 p-5 justify-content-center">
+        <div class="col-lg-2 col-12 from_groupContainer  ">
+            <div class="form-group">
+                <label for="exampleFormControlFile1">From</label>
+                <select class="js-example-basic-single form-control form-select" name="start_location">
+                    <option value="" selected></option>
+                    <option value="Sittwe">Sittwe</option>
+                    <option value="Yangon">Yangon</option>
+                 <option value="Ann">Ann</option>
+                 <option value="Mraukoo">Mrauk_oo</option>
+                  </select>
+              </div>
+         
+        </div>
+        <div class="col-lg-2 col-12 from_groupContainer">
+            <div class="form-group">
+                <label for="exampleFormControlFile1">To</label>
+                <select class="js-example-basic-single form-control form-select" name="end_location">
+                    <option value="" selected></option>
+                    <option value="Sittwe">Sittwe</option>
+                    <option value="Yangon">Yangon</option>
+                    <option value="Ann">Ann</option>
+                    <option value="Mraukoo">Mrauk_oo</option>
+                  </select>
+              </div>
+         
+        </div>
+        <div class="col-lg-2 col-12 from_groupContainer">
+            <div class="form-group">
+                <label for="exampleFormControlFile1">Departure Date</label>
+               <input type="date" name="departure_date" id="date" class="form-input ">
+              </div>
+        </div>
+        <div class="col-lg-2 col-12 from_groupContainer">
+            <div class="form-group">
+                <label for="exampleFormControlFile1">Quantity</label>
+              <input type="number" name="quantity" id="">
+              </div>
+        </div>
+        <div class="col-lg-2 col-12r from_groupContainer">
+            <label for=""></label>
+            <input type="submit" value="search">
+        </div>
+    </div>
+</form>
+  
+
+<!-- <div class="searchbox">
 <form>
     <div class="fromcity">
    <h3>FROM</h3>
-    <input list="city" name="city">
-<datalist id="city">
+    <!-- <input list="city" name="city"> -->
+<!-- <datalist id="city">
     <option value="sittwe"></option>
     <option value="yangon"></option>
     <option value="ngapli"></option>
     <option value="thandwe"></option>
     <option value="mandalay"></option>
-</datalist>
+</datalist> -->
+<!-- 
 </div>
 <div class="tocity">
 <h3>TO</h3>
@@ -138,7 +190,7 @@
 <input type="submit" value="search">
 </div>
 </form>
-</div>
+</div>  -->
 <div class="content">
     <div class="contentgp">
     <h3>system of booking <span>&</span> what we offer</h3>
@@ -302,5 +354,14 @@
     <div class="copyright">@2023 TransportU.com</div>
 </section>
 <script src="/script/home.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<script src="/DataTables/jQuery-3.7.0/jquery-3.7.0.min.js"></script>
+<script src="/vendor/select2/js/select2.full.min.js"></script>
+<script>
+    // In your Javascript (external .js resource or <script> tag)
+        $(document).ready(function() {
+            $('.js-example-basic-single').select2();
+        })
+</script>
 </body>
 </html>                                                                                                         
