@@ -5,10 +5,11 @@
         <meta name="viewport"
         content="width=device-width,initial-scale=1.0">
         <title>User Information Form</title>
+        
     </head>
     <body>
         <h1> User Information</h1>
-        <form id="userForm">
+        <form id="userForm" method="post" action="/user/register">
             <label for="name">Name:</label></label>
             <input type="text"id="name" name="name" placeholder="Enter your name"required><br><br>
             <label for="gender">Gender:</label></label>
@@ -25,9 +26,10 @@
             <input type="text" id="phone" name="phone" placeholder="Enter your Phone Number"required><br><br>
             <label for="nrc">NRC Number:</label></label>
             <input type="text" id="nrc" name="nrc" placeholder="Enter your NRC Number"required><br><br>
-            <button type="button" onclick="submitForm()">Continue to payment</button>
-            <button type="button" onclick="cancleForm()">Cancle</button>
+            <!-- <button type="button" onclick="submitForm()">Continue to payment</button> -->
             
+            <input type="submit" value="Continue to payment">
+            <button type="button" onclick="cancleForm()">Cancle</button>
 </form>
 <div id="result"></div>
 <script src="/script/script.js"></script>
