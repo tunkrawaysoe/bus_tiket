@@ -3,11 +3,22 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var session = require('express-session')
 
 var indexRouter = require('./routes/index');
 var adminRouter = require('./routes/admin')
 
 var app = express();
+
+app.use(session({
+  secret: 'bus_ticket',
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    secure: false, // If using HTTPS
+  
+  }
+}))
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

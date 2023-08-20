@@ -15,11 +15,11 @@
         <label class="logo">Transport<span>U</span></label>
     <ul class="menuContainer">
         
-        <li class="menuList"><a href="http://">Home</a></li>
-        <li class="menuList"><a href="http://">BUS</a></li>
-        <li class="menuList"><a href="http://">SHIP</a></li>
-        <li class="menuList"><a href="http://">PLANE</a></li>
-        <li class="menuList"><a href="http://">ABOUT US</a></li>
+        <li class="menuList"><a class="text-decoration-none" href="/homepage">Home</a></li>
+        <li class="menuList"><a class="text-decoration-none" href="http://">BUS</a></li>
+        <li class="menuList"><a class="text-decoration-none" href="http://">SHIP</a></li>
+        <li class="menuList" ><a class="text-decoration-none" href="http://">PLANE</a></li>
+        <li class="menuList"><a class="text-decoration-none" href="http://">ABOUT US</a></li>
         
     </ul>
     <div class="menubar">
@@ -104,9 +104,9 @@
     </div>
 <form action="/route/search" method="POST">
     <div class="row mx-auto my-5 p-5 justify-content-center">
-        <div class="col-lg-2 col-12 from_groupContainer  ">
+        <div class="col-lg-3 col-12   ">
             <div class="form-group">
-                <label for="exampleFormControlFile1">From</label>
+                <label for="exampleFormControlFile1" class="form-label text-light ">From</label> <br>
                 <select class="js-example-basic-single form-control form-select" name="start_location">
                     <option value="" selected></option>
                     <option value="Sittwe">Sittwe</option>
@@ -117,10 +117,10 @@
               </div>
          
         </div>
-        <div class="col-lg-2 col-12 from_groupContainer">
+        <div class="col-lg-3 col-12 ">
             <div class="form-group">
-                <label for="exampleFormControlFile1">To</label>
-                <select class="js-example-basic-single form-control form-select" name="end_location">
+                <label for="exampleFormControlFile1" class="form-label text-light">To</label> <br>
+                <select class="js-example-basic-single form-control form-select" name="end_location" style=" line-height: 31px !important;">
                     <option value="" selected></option>
                     <option value="Sittwe">Sittwe</option>
                     <option value="Yangon">Yangon</option>
@@ -130,22 +130,25 @@
               </div>
          
         </div>
-        <div class="col-lg-2 col-12 from_groupContainer">
+        <div class="col-lg-3 col-12 ">
             <div class="form-group">
-                <label for="exampleFormControlFile1">Departure Date</label>
-               <input type="date" name="departure_date" id="date" class="form-input ">
+                <label for="exampleFormControlFile1" class="form-label text-light">Departure Date</label>
+               <input type="date" cla name="departure_date" id="date" class="form-control form-input ">
               </div>
         </div>
-        <div class="col-lg-2 col-12 from_groupContainer">
+        <div class="col-lg-3 col-12 ">
             <div class="form-group">
-                <label for="exampleFormControlFile1">Quantity</label>
-              <input type="number" name="quantity" id="">
+                <label for="exampleFormControlFile1" class="form-label text-light"> Quantity</label>
+              <input type="number" name="quantity" id="" class="form-control form-input ">
               </div>
         </div>
-        <div class="col-lg-2 col-12r from_groupContainer">
-            <label for=""></label>
-            <input type="submit" value="search">
+        <div class="col-lg-12 col-12 ">
+            <div class="form-group mt-4">
+                <label for="exampleFormControlFile1">.</label>
+                <input type="submit" value="search" class="btn btn-primary w-100">
+              </div>
         </div>
+      
     </div>
 </form>
   
@@ -360,7 +363,7 @@
 <script>
     // In your Javascript (external .js resource or <script> tag)
         $(document).ready(function() {
-            $('.js-example-basic-single').select2();
+            $('.js-example-basic-single').select2();    
         })
 </script>
 </body>

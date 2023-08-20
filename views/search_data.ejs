@@ -14,7 +14,7 @@
        
     <ul class="menuContainer">
         
-        <li class="menuList"><a class="text-decoration-none" href="http://">Home</a></li>
+        <li class="menuList"><a class="text-decoration-none" href="/homepage">Home</a></li>
         <li class="menuList"><a class="text-decoration-none" href="http://">BUS</a></li>
         <li class="menuList"><a class="text-decoration-none" href="http://">SHIP</a></li>
         <li class="menuList" ><a class="text-decoration-none" href="http://">PLANE</a></li>
@@ -43,6 +43,7 @@
     <h5 class="card-header"><%= data.start_location %> to <%= data.end_location %></h5>
     <div class="card-body">
       <h5 class="card-title">Departure Date : <%= data.departure_date %></h5>
+      <h6 class="card-title">Price : <%=data.price %></h6>
       <p class="card-text">
         <% if(data.start_location == 'Yangon'){ %>
             Yangon - Ann - Minbya - Mrauk U - Kyaut Taw - Ponnagyun - Sittwe 

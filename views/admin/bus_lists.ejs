@@ -39,22 +39,45 @@
 
 <div class="container-fluid">
   <div class="row content">
-    <div class="col-sm-3 sidenav">
-      <h4>Transport U</h4>
-      <ul class="nav nav-pills nav-stacked">
+    <div class="col-sm-3 sidenav justify-content-center">
+      <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+          <span class="fs-4"> Travel U </span>
+        </a>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item">
+            <a href="/admin/bus/lists" class="nav-link active" aria-current="page">
+              Bus List
+            </a>
+          </li>
+          <li>
+            <a href="/admin/route/addition" class="nav-link link-dark">
+              Add Route
+            </a>
+          </li>
+          <li>
+            <a href="/admin/route/list" class="nav-link link-dark">
+              Route List
+            </a>
+          </li>
+          <li>
+            <a href="/admin/user/list" class="nav-link link-dark">
+              Booking List
+            </a>
+          </li>
         
-        <li  class="active"><a href="/admin/bus/lists">Bus List</a></li>
-        <li><a href="/admin/route/addition">Add Route</a></li>
-        <li><a href="/admin/route/list">Route List</a></li>
-        <li><a href="/admin/user/list">Booking List</a></li>
-      </ul><br>
+        </ul>
+        <hr>
+       
+      </div>
+    
       
     </div>
-
     <div class="col-sm-9">
         <h2> Bus List</h2>
     <div class="p-4">
-        <table id="bus_lists" class=" display table table-dark table-striped w-100">
+        <table id="bus_lists" class=" display table  table-striped w-100">
             <thead>
                 <tr>
                     <th> Bus Number </th>

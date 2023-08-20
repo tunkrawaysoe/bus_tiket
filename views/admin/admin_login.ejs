@@ -10,21 +10,28 @@
 </head>
 <body>
 
-<div class="container">
-  <h2>Admin</h2>
+<div class="container mt-5 pt-5">
   <div class="row d-flex justify-content-center">
     <div class="col-12 col-lg-4">
-      <form action="/action_page.php" class="w-50">
-        <div class="form-group">
+      <div class=" p-3">
+        <h3 class="text-center"> Please Login</h3>
+      </div>
+      <form action="/admin/login" method="POST" >
+        <% if(err){ %> 
+        <div class="err text-white bg-danger text-center p-2">
+              <span><%= err %></span>
+        </div>
+        <% } %>
+        <div class="form-group mt-3">
           <label for="email">Email:</label>
           <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
         </div>
-        <div class="form-group">
+        <div class="form-group mt-3">
           <label for="pwd">Password:</label>
-          <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+          <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password">
         </div>
         
-        <button type="submit" class="btn btn-default">LOGIN</button>
+        <button type="submit" class="btn btn-primary w-100 mt-3">LOGIN</button>
       </form>
     </div>
   </div>

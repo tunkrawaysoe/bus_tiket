@@ -39,71 +39,99 @@
 
 <div class="container-fluid">
   <div class="row content">
-    <div class="col-sm-3 sidenav">
-      <h4>Transport U</h4>
-      <ul class="nav nav-pills nav-stacked">
+    <div class="col-sm-3 sidenav justify-content-center">
+      <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+          <span class="fs-4"> Travel U </span>
+        </a>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item">
+            <a href="/admin/bus/lists" class="nav-link link-dark" >
+              Bus List
+            </a>
+          </li>
+          <li>
+            <a href="/admin/route/addition" class="nav-link active" aria-current="page">
+              Add Route
+            </a>
+          </li>
+          <li>
+            <a href="/admin/route/list" class="nav-link link-dark">
+              Route List
+            </a>
+          </li>
+          <li>
+            <a href="/admin/user/list" class="nav-link link-dark">
+              Booking List
+            </a>
+          </li>
         
-        <li  ><a href="/admin/bus/lists">Bus List</a></li>
-        <li class="active"><a href="/admin/route/addition">Add Route</a></li>
-        <li><a href="/admin/route/list">Route List</a></li>
-        <li><a href="/admin/user/list">Booking List</a></li>
-      </ul><br>
+        </ul>
+        <hr>
+       
+      </div>
+    
       
     </div>
 
-    <div class="col-sm-9">
+    <div class="col-sm-9 mt-5">
       
         <h2>Route Additon</h2>
-        
-        <form method="post" action="/admin/route/add">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <form method="post" action="/admin/route/add">
           
-          <div class="form-group">
-            <label for="slocation">Start Location</label>
-            <select class="js-example-basic-single form-control form-select" name="start_location">
-              <option value="" selected></option>
-              <option value="Sittwe">Sittwe</option>
-              <option value="Yangon">Yangon</option>
-           <option value="Ann">Ann</option>
-           <option value="Mraukoo">Mrauk_oo</option>
-            </select>
+              <div class="form-group my-1">
+                <label for="slocation">Start Location</label>
+                <select class="js-example-basic-single form-control form-select" name="start_location">
+                  <option value="" selected></option>
+                  <option value="Sittwe">Sittwe</option>
+                  <option value="Yangon">Yangon</option>
+               <option value="Ann">Ann</option>
+               <option value="Mraukoo">Mrauk_oo</option>
+                </select>
+              </div>
+              <div class="form-group my-1">
+                <label for="elocation">End Location:</label>
+                <select class="js-example-basic-single form-control form-select" name="end_location">
+                  <option value="" selected></option>
+                  <option value="Sittwe">Sittwe</option>
+                  <option value="Yangon">Yangon</option>
+                  <option value="Ann">Ann</option>
+                  <option value="Mraukoo">Mrauk_oo</option>
+                </select>
+              </div>
+              <div class="form-group my-1">
+                  <label for="price">Price:</label>
+                  <input type="number" class="form-control" id="price" name="price">
+                </div>
+                
+                <div class="form-group my-1">
+                  <label for="dtime">Departture Time:</label>
+                  <input type="time" class="form-control" id="dtime" name="departure_time">
+                </div>
+                <div class="form-group my-1">
+                  <label for="dpdate">Departure Date:</label>
+                  <input type="date" class="form-control" id="dpdate" name="departure_date">
+                </div>
+                <div class="form-group my-1">
+                  <label for="busid">Bus Id</label>
+                  <select class=" form-control form-select" name="bus_id">
+                    <option value="" selected></option>
+                    <option value="1">Transport_U1</option>
+                    <option value="2">Transport_U2</option>
+                    <option value="3">Transport_U3</option>
+                    <option value="4">Transport_U4</option>
+                  </select>
+                </div>
+                <div class="form-group w-100">
+                  <input type="submit" class="btn btn-success w-100" value="ADD"></input>
+                </div>
+            </form>
           </div>
-          <div class="form-group">
-            <label for="elocation">End Location:</label>
-            <select class="js-example-basic-single form-control form-select" name="end_location">
-              <option value="" selected></option>
-              <option value="Sittwe">Sittwe</option>
-              <option value="Yangon">Yangon</option>
-              <option value="Ann">Ann</option>
-              <option value="Mraukoo">Mrauk_oo</option>
-            </select>
-          </div>
-          <div class="form-group">
-              <label for="price">Price:</label>
-              <input type="number" class="form-control" id="price" name="price">
-            </div>
-            
-            <div class="form-group">
-              <label for="dtime">Departture Time:</label>
-              <input type="time" class="form-control" id="dtime" name="departure_time">
-            </div>
-            <div class="form-group">
-              <label for="dpdate">Departure Date:</label>
-              <input type="date" class="form-control" id="dpdate" name="departure_date">
-            </div>
-            <div class="form-group">
-              <label for="busid">Bus Id</label>
-              <select class=" form-control form-select" name="bus_id">
-                <option value="" selected></option>
-                <option value="1">Transport_U1</option>
-                <option value="2">Transport_U2</option>
-                <option value="3">Transport_U3</option>
-                <option value="4">Transport_U4</option>
-              </select>
-            </div>
-            <div class="form-group w-100">
-              <input type="submit" class=" btn-outline-success w-100" value="ADD"></input>
-            </div>
-        </form>
+        </div>
+      
         </div>
       </div>
     </div>

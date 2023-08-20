@@ -94,7 +94,12 @@ exports.filterRouter = (searchData, callback) => {
         if(err){
             callback(err, null);
         }else{
-            callback(null, result);
+            const modifiedData = result.map(event => ({
+                ...event,
+                departure_date: moment(new Date(event.departure_date)).format('YYYY-MM-DD')
+              }));
+    
+            callback(null, modifiedData);
         }
     }
     )
@@ -132,6 +137,16 @@ exports.denyTicket = (id , callback) => {
 
 exports.deleteTicket = (id , callback) => {
     connection.query("DELETE FROM ticket_table WHERE ticket_id = ?", [ id ], function(err, result){
+        if(err){
+            callback(err, null);
+        }else{
+            callback(null, result);
+        }
+    })
+}
+
+exports.adminLogin = (data, callback) => {
+    connection.query("SELECT * FROM admin_table WHERE admin_email = ? and admin_password = ?", [ data.email, data.password ], function(err, result){
         if(err){
             callback(err, null);
         }else{
