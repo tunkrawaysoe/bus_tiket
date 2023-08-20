@@ -28,7 +28,23 @@ router.get('/admin/user/list', function(req, res, next) {
 });
 /* Get bus table. */
 router.get('/admin/bus/lists', function(req, res, next) {
-  res.render('admin/bus_lists');  
+  var noResult=false;
+  userModel.bus_list(function(err,result){
+    if(err){
+      console.log("err", err);
+      res.send(err)
+    }else{
+      if(result.length < 1){
+        noResult = true;
+      }
+
+      console.log("Result", result)
+      res.render('admin/bus_list',{
+        result, noResult
+      });  
+    }
+  })
+ 
 });
 /* Get route additon. */
 router.get('/admin/route/addition', function(req, res, next) {

@@ -21,6 +21,25 @@ exports.bookingList = (callback) => {
    })
 }
 
+exports.bus_list=(callback) => {
+ var query= 'SELECT * from bus_table'
+
+ connection.query(query,function(err,result){
+ {
+    if(err){
+        callback(err,null);
+    }
+    else{
+        callback(null,result)
+    }
+    
+ }
+}
+
+
+
+
+
 exports.addUser = (data, callback) => {
     connection.query('INSERT INTO user_table SET ?', [ data ], function(err, result){
         if(err){
