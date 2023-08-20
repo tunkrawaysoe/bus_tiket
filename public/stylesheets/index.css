@@ -2,11 +2,12 @@
 *{
     padding: 0;
     margin: 0;
-    text-decoration: none;
 }
 body{
     background-color:#4a4848;
+    height: 100vh;
 }
+    
 nav{
     height: 80px;
     width: 100%;
@@ -43,6 +44,7 @@ li{
 a{
     color: #cef3e9;
     font-size: 20px;
+    text-decoration: none;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -366,7 +368,8 @@ fieldset p{
     font-size: 1.3em;
 }
 .footer{
-    margin-top: 10px;
+    position: sticky;
+    top:100%;
     background-color: #2d2c2c;
     border-top: 4px solid rgb(47, 79, 79);
 }
@@ -408,6 +411,21 @@ fieldset p{
     padding: 10px 0;
     font-size: 30px;
     color: #cef3e9;
+}
+.card{
+    top: 100px;
+    bottom:40px;
+    background:#575454;
+    color: #cef3e9;
+}
+.card .card-body .btn{
+    background-color:  #a5a3a3;
+    border: #a5a3a3;
+    width: 150px;
+}
+.card .card-body .btn:hover{
+    background-color: #00ced1;
+    border: #00ced1;
 }
 @media (max-width:1048px){
 .logo{
@@ -473,8 +491,10 @@ a{
     
    }
    .logo{
-    
+    margin-top: -20px;
+   line-height: 2px;
     padding-left: 3px;
+    font-size: 2.4em;
    }
    .bar{
     transition: all .5s;

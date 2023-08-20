@@ -25,6 +25,7 @@ router.get('/homepage', function(req, res, next){
  })
  router.get('/homepage/detail', function(req, res, next){
   res.render('semore');
+ })
 
  router.post('/user/register',function(req,res){
   userModel.addUser(req.body, function(err, result){
@@ -37,4 +38,11 @@ router.get('/homepage', function(req, res, next){
   })
 
  })
+ router.get('/homepage/searchdata', function(req, res, next){
+  res.render('search_data');
+ })
+ router.get('/homepage/booking', function(req, res, next){
+  res.render('booking');
+ })
+
 module.exports = router;
