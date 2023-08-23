@@ -15,7 +15,7 @@
         <label class="logo">Transport<span>U</span></label>
     <ul class="menuContainer">
         
-        <li class="menuList"><a class="text-decoration-none" href="/homepage">Home</a></li>
+        <li class="menuList"><a class="text-decoration-none" href="/homepage">HOME</a></li>
         <li class="menuList"><a class="text-decoration-none" href="http://">BUS</a></li>
         <li class="menuList"><a class="text-decoration-none" href="http://">SHIP</a></li>
         <li class="menuList" ><a class="text-decoration-none" href="http://">PLANE</a></li>
@@ -38,36 +38,35 @@
         <img src="/img/pjphoto/bus12.jpg" alt="">
        <div class="info">
         <h4>sittwe to yangon</h4>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet repellat tempore nesciunt porro saepe, dolorem repudiandae cum at numquam, quis non quae quod iste fugiat qui incidunt molestiae velit modi.</p>
+       
        </div>
     </div>
     <div class="slide">
         <img src="/img/pjphoto/bus7.jpg" alt="">
        <div class="info">
         <h4>sittwe to yangon</h4>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet repellat tempore nesciunt porro saepe, dolorem repudiandae cum at numquam, quis non quae quod iste fugiat qui incidunt molestiae velit modi.</p>
+       
        </div>
     </div>
     <div class="slide">
         <img src="/img/pjphoto/bus8.jpg" alt="">
        <div class="info">
         <h4>sittwe to taunggoot</h4>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet repellat tempore nesciunt porro saepe, dolorem repudiandae cum at numquam, quis non quae quod iste fugiat qui incidunt molestiae velit modi.</p>
+       
        </div>
     </div>
     <div class="slide">
         <img src="/img/pjphoto/bus9.jpg" alt="">
        <div class="info">
         <h4>mandalay to sittwe</h4>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet repellat tempore nesciunt porro saepe, dolorem repudiandae cum at numquam, quis non quae quod iste fugiat qui incidunt molestiae velit modi.</p>
+        
        </div>
     </div>  
     <div class="slide">
         <img src="/img/pjphoto/bus10.jpg" alt="">
        <div class="info">
         <h4>ngapli to yangon</h4>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet repellat tempore nesciunt porro saepe, dolorem repudiandae cum at numquam, quis non quae quod iste fugiat qui incidunt molestiae velit modi.</p>
-       </div>
+     </div> 
     </div>
     <div class="navagition">
         <i class="fa-solid fa-angle-left"></i>
@@ -102,12 +101,12 @@
             </fieldset>
         </div>
     </div>
-<form action="/route/search" method="POST">
+<form class="homeform" action="/route/search" method="POST">
     <div class="row mx-auto my-5 p-5 justify-content-center">
         <div class="col-lg-3 col-12   ">
             <div class="form-group">
                 <label for="exampleFormControlFile1" class="form-label text-light ">From</label> <br>
-                <select class="js-example-basic-single form-control form-select" name="start_location">
+                <select id="element_id" class="js-example-basic-single form-control form-select" name="start_location">
                     <option value="" selected></option>
                     <option value="Sittwe">Sittwe</option>
                     <option value="Yangon">Yangon</option>
@@ -117,10 +116,11 @@
               </div>
          
         </div>
+        
         <div class="col-lg-3 col-12 ">
             <div class="form-group">
                 <label for="exampleFormControlFile1" class="form-label text-light">To</label> <br>
-                <select class="js-example-basic-single form-control form-select" name="end_location" style=" line-height: 31px !important;">
+                <select  id="toselect2" class="js-example-basic-single form-control form-select" name="end_location" style=" line-height: 31px !important;">
                     <option value="" selected></option>
                     <option value="Sittwe">Sittwe</option>
                     <option value="Yangon">Yangon</option>
@@ -145,7 +145,7 @@
         <div class="col-lg-12 col-12 ">
             <div class="form-group mt-4">
                 <label for="exampleFormControlFile1">.</label>
-                <input type="submit" value="search" class="btn btn-primary w-100">
+                <input type="submit" value="search" class="btn w-100">
               </div>
         </div>
       
@@ -261,7 +261,7 @@
 <div class="package">
 <div class="discount">
     <div class="dis">
-    <img src="/img/pjphoto/bus6.jpg" alt="">
+    <img src="/img/pjphoto/bus6.jpg" class="upimage" alt="">
      <div class="discountnews">
     <label for="">Student package</label>
     <p>30% discount for june</p>
@@ -277,7 +277,7 @@
 </div>
 </div>
     <div class="dis">
-        <img class="upiage" src="/img/pjphoto/beach.jpg" alt="">
+        <img class="disimage" src="/img/pjphoto/beach.jpg" alt="">
    <div class="discountnews"> <label for="">Couple package</label>
     <p>30% discount for june</p>
     <span>Gone are the days of burdening student loans and tight pockets – with our Student Execution Discount, you can now seize the adventure without sacrificing your budget. We believe that every student deserves to experience the thrill of exploration, without compromising on safety, convenience, or affordability.
@@ -292,7 +292,7 @@
     </div>
     </div>
     <div class="dis">
-        <img src="/img/pjphoto/bus6.jpg" alt="">
+        <img src="/img/pjphoto/bus6.jpg" class="upmage" alt="">
         <div class="discountnews"> <label for="">Foregin package</label>
             <p>30% discount for june</p>
             <span>Gone are the days of burdening student loans and tight pockets – with our Student Execution Discount, you can now seize the adventure without sacrificing your budget. We believe that every student deserves to experience the thrill of exploration, without compromising on safety, convenience, or affordability.
@@ -307,7 +307,7 @@
             </div>
     </div> 
     <div class="dis">
-        <img src="/img/pjphoto/bus6.jpg" alt="">
+        <img src="/img/pjphoto/bus6.jpg" class="upimage" alt="">
         <div class="discountnews"> <label for="">Pagoda package</label>
             <p>30% discount for june</p>
             <span>Gone are the days of burdening student loans and tight pockets – with our Student Execution Discount, you can now seize the adventure without sacrificing your budget. We believe that every student deserves to experience the thrill of exploration, without compromising on safety, convenience, or affordability.

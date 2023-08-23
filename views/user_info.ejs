@@ -5,37 +5,197 @@
         <meta name="viewport"
         content="width=device-width,initial-scale=1.0">
         <title>User Information Form</title>
+        <script src="https://kit.fontawesome.com/4e66fe9cce.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/stylesheets/userinformation.css">   
     </head>
     <body>
-        <h1> User Information</h1>
-        <form id="userForm" method="post" action="/user/register">
+        <nav class="headsection">
+            <label class="logo">Transport<span>U</span></label>
+        <ul class="menuContainer">
+            
+            <li class="menuList"><a class="text-decoration-none" href="/homepage">HOME</a></li>
+            <li class="menuList"><a class="text-decoration-none" href="http://">BUS</a></li>
+            <li class="menuList"><a class="text-decoration-none" href="http://">SHIP</a></li>
+            <li class="menuList" ><a class="text-decoration-none" href="http://">PLANE</a></li>
+            <li class="menuList"><a class="text-decoration-none" href="http://">ABOUT US</a></li>
+            
+        </ul>
+        <div class="menubar">
+            <div class="bar line1"></div>
+            <div class="bar line2"></div>
+            <div class="bar line3"></div>
+        </div>
+       
+    </nav>
+        <h1 class="userform-h1"> please add all infomation for our connect</h1>
+        <div class="infocontainer">
+            <div class="set">
+                <h4>Choice at least one seat</h4>
+
+                <div class="setcontainer">
+                    <div class="driver">Mr.Driver</div>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>2</td>
+                                <td></td>
+                                <td>3</td>
+                                <td>4</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>6</td>
+                                <td></td>
+                                <td>7</td>
+                                <td>8</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>10</td>
+                                <td></td>
+                                <td>11</td>
+                                <td>12</td>
+                            </tr>
+                            <tr>
+                                <td>13</td>
+                                <td>14</td>
+                                <td></td>
+                                <td>15</td>
+                                <td>16</td>
+                            </tr>
+                            <tr>
+                                <td>17</td>
+                                <td>18</td>
+                                <td></td>
+                                <td>19</td>
+                                <td>20</td>
+                            </tr>
+                            <tr>
+                                <td>21</td>
+                                <td>22</td>
+                                <td></td>
+                                <td>23</td>
+                                <td>24</td>
+                            </tr>
+                            <tr>
+                                <td>25</td>
+                                <td>26</td>
+                                <td></td>
+                                <td>27</td>
+                                <td>28</td>
+                            </tr>
+                            <tr>
+                                <td>29</td>
+                                <td>30</td>
+                                <td></td>
+                                <td>31</td>
+                                <td>32</td>
+                            </tr>
+                            <tr>
+                                <td>33</td>
+                                <td>34</td>
+                                <td></td>
+                                <td>35</td>
+                                <td>36</td>
+                            </tr>
+                            <tr>
+                                <td>37</td>
+                                <td>38</td>
+                                <td></td>
+                                <td>39</td>
+                                <td>40</td>
+                            </tr>
+                            <tr>
+                                <td>41</td>
+                                <td>42</td>
+                                <td>43</td>
+                                <td>44</td>
+                                <td>45</td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+           
+        <form id="userForm" method="post" action="/user/register" class="userForm">
+            <h4>Fill your information</h4>
             <input type="text" class="d-none" name="route_id" value="<%=route_id%>" >
-            <label for="name">Name:</label></label>
-            <input type="text"id="name" name="name" placeholder="Enter your name"required><br><br>
-            <label for="gender">Gender:</label></label>
+            <div class="userdata">
+            <label for="name">Name:</label>
+            <input type="text"id="name" name="name"  required>
+        </div>
+        <div class="userdata">
+            <label for="gender">Gender:</label>
             <select type="radio"id="gender" name="gender">
+                <option value="" selected></option>
             <option value="male">Male</option>
             <option value="female">Female</option>
             <option value="other">other</option>
-            </select><br><br>
-            <label for="email">Email:</label></label>
-            <input type="text"id="email" name="email" placeholder="Enter your email"required><br><br>
-            <label for="address">Address:</label></label>
-            <input type="text"id="address" name="address" placeholder="Enter your address"required><br><br>
-            <label for="phone">Phone Number:</label></label>
-            <input type="text" id="phone" name="phone" placeholder="Enter your Phone Number"required><br><br>
-            <label for="nrc">NRC Number:</label></label>
-            <input type="text" id="nrc" name="nrc" placeholder="Enter your NRC Number"required><br><br>
+            </select>
+        </div>
+        <div class="userdata">
+            <label for="email">Email:</label>
+            <input type="email"id="email" name="email" required>
+        </div>
+        <div class="userdata">
+            <label for="address">Address:</label>
+            <input type="text"id="address" name="address" required>
+        </div>
+        <div class="userdata">
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" name="phone" required>
+        </div>
+        <div class="userdata">
+            <label for="nrc">NRC Number:</label>
+            <input type="text" id="nrc" name="nrc" required>
+        </div>
             <!-- <button type="button" onclick="submitForm()">Continue to payment</button> -->
-            
-            <input type="submit" value="Continue to payment">
-            <button type="button" onclick="cancleForm()">Cancle</button>
+<div class="userdata-btn">
+            <input type="submit" value="Cash down">
+            <input type="submit" value="Cancel">
+        </div>
+            <!-- <button type="button" onclick="cancleForm()">Cancle</button> -->
 </form>
+</div>
 <div id="result"></div>
-
+<section class="footer">
+    <div class="footerContainer">
+        <div class="footerBox">
+            <a  class="pagename" href="">Transport<span>U</span></a>
+            <div class="socal">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-twitter"></i>
+            </div>
+        </div>
+        <div class="footerBox">
+            <h3>Page</h3>
+            <a href="">Home</a>
+            <a href="">bus</a>
+            <a href="">ship</a>
+            <a href="">plane</a>
+            <a href="">about us</a>
+        </div>
+        <div class="footerBox">
+            <h3>legal</h3>
+            <a href="">Privicy</a>
+            <a href="">Refund Policy</a>
+            <a href="">cookies Policy</a>
+        </div>
+        <div class="footerBox">
+            <h3>Contact us</h3>
+            <p>Yangon</p>
+            <p>Sittwe</p>
+            <p>09898495517</p>
+        </div>
+    </div>
+    <div class="copyright">@2023 TransportU.com</div>
+</section>
 <script src="/bootstrap/js/bootstrap.min.js"></script>
-<script src="/script/script.js"></script>
+<!-- <script src="/script/script.js"></script> -->
 
     </body>
 </html>
