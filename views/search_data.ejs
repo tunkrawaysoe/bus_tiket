@@ -44,12 +44,14 @@
     <div class="card-body">
       <h5 class="card-title">Departure Date : <%= data.departure_date %></h5>
       <h6 class="card-title">Price : <%=data.price %></h6>
+      <h6 class="card-title">BUS : <%= data.bus_id %></h6>
       <p class="card-text">
         <% if(data.start_location == 'Yangon'){ %>
             Yangon - Ann - Minbya - Mrauk U - Kyaut Taw - Ponnagyun - Sittwe 
         <% }else if(data.start_location == 'Sittwe'){ %>
                 Sittwe - Ponnagyun - Kyaut Taw - Mrauk U - Minbya - Ann - Yangon
         <% } %>
+
         </p>
       <a href="/user/register/<%=data.route_id%>" class="btn btn-primary" >Book</a>
     </div>
