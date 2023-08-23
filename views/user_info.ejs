@@ -28,7 +28,7 @@
         </div>
        
     </nav>
-        <h1 class="userform-h1"> please add all infomation for our connect</h1>
+        <h1 class="userform-h1"> please fill your informations</h1>
         <div class="infocontainer">
             <div class="set">
                 <h4>Choice at least one seat</h4>
@@ -125,7 +125,7 @@
             <input type="text" class="d-none" name="route_id" value="<%=route_id%>" >
             <div class="userdata">
             <label for="name">Name:</label>
-            <input type="text"id="name" name="name"  required>
+            <input type="text"id="name" name="name" class="nameinput" required>
         </div>
         <div class="userdata">
             <label for="gender">Gender:</label>
@@ -152,10 +152,10 @@
             <label for="nrc">NRC Number:</label>
             <input type="text" id="nrc" name="nrc" required>
         </div>
-            <!-- <button type="button" onclick="submitForm()">Continue to payment</button> -->
-<div class="userdata-btn">
+            <!-- <button type="button" onclick="submitForm()">Continue to payment</button> 
+<div class="userdata-btn"> -->
             <input type="submit" value="Cash down">
-            <input type="submit" value="Cancel">
+            <input type="submit" value="Cancel" class="cancel">
         </div>
             <!-- <button type="button" onclick="cancleForm()">Cancle</button> -->
 </form>
@@ -195,7 +195,25 @@
     <div class="copyright">@2023 TransportU.com</div>
 </section>
 <script src="/bootstrap/js/bootstrap.min.js"></script>
-<!-- <script src="/script/script.js"></script> -->
+<script>
+    const cancelbtn=document.getElementsByClassName("cancel")[0];
+    let inputname=document.getElementsByClassName("nameinput")[0];
+    let radio=document.getElementById("gender")[0];
+    let email=document.getElementById("email")[0];
+    let address=document.getElementById("address")[0];
+    let phone=document.getElementById("phone")[0];
+    let nrc=document.getElementById("nrc")[0];
+    cancelbtn.addEventListener("click", () =>{
+        inputname.value="";
+        radio.value="";
+        email.value="";
+        address.value="";
+        phone.value="";
+        nrc.value="";
+    
+
+    });
+</script>
 
     </body>
 </html>
