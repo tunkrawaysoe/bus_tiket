@@ -436,6 +436,7 @@ fieldset{
 .footer{
     position: relative;
     top:50%;
+    top:40%;
     background-color: #2d2c2c;
     border-top: 4px solid rgb(47, 79, 79);
 }

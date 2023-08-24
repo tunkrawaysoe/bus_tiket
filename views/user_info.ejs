@@ -28,6 +28,15 @@
             <div class="bar line2"></div>
             <div class="bar line3"></div>
         </div>
+<<<<<<< HEAD
+       
+    </nav>
+        <h1 class="userform-h1"> please fill your informations</h1>
+        <div class="infocontainer">
+            <div class="set">
+                <h4>Choice at least one seat</h4>
+=======
+>>>>>>> b6d2a8056e61ba3753a436a26acc823b19b74f80
 
     </nav>
     <h1 class="userform-h1"> please add all infomation for our connect</h1>
@@ -132,6 +141,58 @@
                     <i class="fa-brands fa-twitter"></i>
                 </div>
             </div>
+<<<<<<< HEAD
+           
+        <form id="userForm" method="post" action="/user/register" class="userForm">
+            <h4>Fill your information</h4>
+            <input type="text" class="d-none" name="route_id" value="<%=route_id%>" >
+            <div class="userdata">
+            <label for="name">Name:</label>
+            <input type="text"id="name" name="name" class="nameinput" required>
+        </div>
+        <div class="userdata">
+            <label for="gender">Gender:</label>
+            <select type="radio"id="gender" name="gender">
+                <option value="" selected></option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">other</option>
+            </select>
+        </div>
+        <div class="userdata">
+            <label for="email">Email:</label>
+            <input type="email"id="email" name="email" required>
+        </div>
+        <div class="userdata">
+            <label for="address">Address:</label>
+            <input type="text"id="address" name="address" required>
+        </div>
+        <div class="userdata">
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" name="phone" maxlength="12" minlength="9" pattern="[0-9]{1,12}"  required>
+        </div>
+        <div class="userdata">
+            <label for="nrc">NRC Number:</label>
+            <input type="text" id="nrc" name="nrc" required>
+        </div>
+            <!-- <button type="button" onclick="submitForm()">Continue to payment</button> 
+<div class="userdata-btn"> -->
+            <input type="submit" value="Cash down">
+            <input type="submit" value="Cancel" class="cancel">
+        </div>
+            <!-- <button type="button" onclick="cancleForm()">Cancle</button> -->
+</form>
+</div>
+<div id="result"></div>
+<section class="footer">
+    <div class="footerContainer">
+        <div class="footerBox">
+            <a  class="pagename" href="">Transport<span>U</span></a>
+            <div class="socal">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-twitter"></i>
+=======
             <div class="footerBox">
                 <h3>Page</h3>
                 <a href="">Home</a>
@@ -151,6 +212,7 @@
                 <p>Yangon</p>
                 <p>Sittwe</p>
                 <p>09898495517</p>
+>>>>>>> b6d2a8056e61ba3753a436a26acc823b19b74f80
             </div>
         </div>
         <div class="copyright">@2023 TransportU.com</div>
@@ -200,6 +262,31 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
+    <div class="copyright">@2023 TransportU.com</div>
+</section>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<script>
+    const cancelbtn=document.getElementsByClassName("cancel")[0];
+    let inputname=document.getElementsByClassName("nameinput")[0];
+    let radio=document.getElementById("gender")[0];
+    let email=document.getElementById("email")[0];
+    let address=document.getElementById("address")[0];
+    let phone=document.getElementById("phone")[0];
+    let nrc=document.getElementById("nrc")[0];
+    cancelbtn.addEventListener("click", () =>{
+        inputname.value="";
+        radio.value="";
+        email.value="";
+        address.value="";
+        phone.value="";
+        nrc.value="";
+    
+
+    });
+</script>
+=======
+>>>>>>> b6d2a8056e61ba3753a436a26acc823b19b74f80
 
     <div id="printFrameArea">
         <!-- <iframe name="print_frame" width="0" height="0" frameborder="0" class="" src="about:blank"></iframe> -->

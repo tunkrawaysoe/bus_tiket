@@ -155,5 +155,8 @@ router.post('/user/register',function(req,res){
       }
      })
  })
+ router.get('/vouncher', function(req, res, next){
+  res.render('vouncher');
+ })
 
 module.exports = router;

@@ -7,6 +7,7 @@ function submitForm(){
     const phone=document.getElementById("phone").value;
     const nrc=document.getElementById("nrc").value;
     const resultDiv=document.getElementById("result");
+    const cancelbtn=document.getElementsByClassName(".cancel");
     resultDiv.innerHTML=`<p>Name:${name}<\p><p>Gender:${gender}<\p><p>Email:${email}<\p><p>Address:${address}<\p><p>Phone:${phone}</p><p>NRC:${nrc}</p>`;
     
     const userData = { name, gender, email, address};
@@ -20,7 +21,8 @@ function submitForm(){
         
     }
 }
-    function cancleForm(){
+    cancelbtn.addEventListener("click", ()=>{
         document.getElementById("userForm").reset();
     
 }
+);
