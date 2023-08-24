@@ -1,124 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport"
-        content="width=device-width,initial-scale=1.0">
-        <title>User Information Form</title>
-        <script src="https://kit.fontawesome.com/4e66fe9cce.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/stylesheets/userinformation.css">   
-    </head>
-    <body>
-        <nav class="headsection">
-            <label class="logo">Transport<span>U</span></label>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>User Information Form</title>
+    <script src="https://kit.fontawesome.com/4e66fe9cce.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/userinformation.css">
+    <!-- <link rel="stylesheet" href="/stylesheets/index.css"> -->
+</head>
+
+<body>
+    <nav class="headsection">
+        <label class="logo">Transport<span>U</span></label>
         <ul class="menuContainer">
-            
+
             <li class="menuList"><a class="text-decoration-none" href="/homepage">HOME</a></li>
             <li class="menuList"><a class="text-decoration-none" href="http://">BUS</a></li>
             <li class="menuList"><a class="text-decoration-none" href="http://">SHIP</a></li>
-            <li class="menuList" ><a class="text-decoration-none" href="http://">PLANE</a></li>
+            <li class="menuList"><a class="text-decoration-none" href="http://">PLANE</a></li>
             <li class="menuList"><a class="text-decoration-none" href="http://">ABOUT US</a></li>
-            
+
         </ul>
         <div class="menubar">
             <div class="bar line1"></div>
             <div class="bar line2"></div>
             <div class="bar line3"></div>
         </div>
+<<<<<<< HEAD
        
     </nav>
         <h1 class="userform-h1"> please fill your informations</h1>
         <div class="infocontainer">
             <div class="set">
                 <h4>Choice at least one seat</h4>
+=======
+>>>>>>> b6d2a8056e61ba3753a436a26acc823b19b74f80
 
-                <div class="setcontainer">
-                    <div class="driver">Mr.Driver</div>
-                    <table>
-                        <tbody>
+    </nav>
+    <h1 class="userform-h1"> please add all infomation for our connect</h1>
+    <div class="infocontainer">
+        <div class="set">
+            <h4>Choice at least one seat</h4>
+
+            <div class="setcontainer">
+               
+                <div class="driver">Mr.Driver</div>
+                <table>
+                    <tbody>
+                        <% let capacity=45; let excepteLastRow=parseInt(capacity - 5); let seatsPerRow=4; let
+                            rows=Math.floor(excepteLastRow / seatsPerRow); let seatsInLastRow=capacity - excepteLastRow;
+                            let seatNumber=1; let noSpace=false; %>
                             <tr>
-                                <td>1</td>
-                                <td>2</td>
-                                <td></td>
-                                <td>3</td>
-                                <td>4</td>
+                                <th colspan="<%= seatsPerRow + 1 %>">Driver</td>
                             </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>6</td>
-                                <td></td>
-                                <td>7</td>
-                                <td>8</td>
-                            </tr>
-                            <tr>
-                                <td>9</td>
-                                <td>10</td>
-                                <td></td>
-                                <td>11</td>
-                                <td>12</td>
-                            </tr>
-                            <tr>
-                                <td>13</td>
-                                <td>14</td>
-                                <td></td>
-                                <td>15</td>
-                                <td>16</td>
-                            </tr>
-                            <tr>
-                                <td>17</td>
-                                <td>18</td>
-                                <td></td>
-                                <td>19</td>
-                                <td>20</td>
-                            </tr>
-                            <tr>
-                                <td>21</td>
-                                <td>22</td>
-                                <td></td>
-                                <td>23</td>
-                                <td>24</td>
-                            </tr>
-                            <tr>
-                                <td>25</td>
-                                <td>26</td>
-                                <td></td>
-                                <td>27</td>
-                                <td>28</td>
-                            </tr>
-                            <tr>
-                                <td>29</td>
-                                <td>30</td>
-                                <td></td>
-                                <td>31</td>
-                                <td>32</td>
-                            </tr>
-                            <tr>
-                                <td>33</td>
-                                <td>34</td>
-                                <td></td>
-                                <td>35</td>
-                                <td>36</td>
-                            </tr>
-                            <tr>
-                                <td>37</td>
-                                <td>38</td>
-                                <td></td>
-                                <td>39</td>
-                                <td>40</td>
-                            </tr>
-                            <tr>
-                                <td>41</td>
-                                <td>42</td>
-                                <td>43</td>
-                                <td>44</td>
-                                <td>45</td>
-                            </tr>
-                            
-                        </tbody>
-                    </table>
+                            <% for (var r=1; r <=rows; r++) { %>
+                                <tr>
+                                    <% for (var seat=1; seat <=seatsPerRow; seat++) { %>
+                                        <td data-id="<%= seatNumber %>">
+                                            <%= seatNumber %>
+                                        </td>
+                                        <% if(seatNumber % 2===0 && noSpace==false){ %>
+                                            <th style="border: none; background-color: #2f4f4f;"></th>
+                                            <% noSpace=true %>
+                                                <% }%>
+                                                    <% seatNumber++; %>
+                                                        <% } %>
+                                </tr>
+                                <% noSpace=false %>
+                                    <% } %>
+                                        <% if (seatsInLastRow> 0) { %>
+                                            <tr>
+                                                <% for (var seat=1; seat <=seatsInLastRow; seat++) { %>
+                                                    <td data-id="<%= seatNumber %>">
+                                                        <%= seatNumber %>
+                                                    </td>
+                                                    <% seatNumber++; %>
+                                                        <% } %>
+                                            </tr>
+                                            <% } %>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+        <form id="userForm" class="userForm">
+            <h4>Fill your information</h4>
+            <input type="text" class="d-none" id="route_id" name="route_id" value="<%=route_id%>">
+            <div class="userdata">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="userdata">
+                <label for="gender">Gender:</label>
+                <select type="radio" id="gender" name="gender">
+                    <option value="" selected></option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">other</option>
+                </select>
+            </div>
+            <div class="userdata">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="userdata">
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required>
+            </div>
+            <div class="userdata">
+                <label for="phone">Phone Number:</label>
+                <input type="text" id="phone" name="phone" required>
+            </div>
+            <div class="userdata">
+                <label for="nrc">NRC Number:</label>
+                <input type="text" id="nrc" name="nrc" required>
+            </div>
+            <!-- <button type="button" onclick="submitForm()">Continue to payment</button> -->
+            <div class="userdata-btn">
+                <input type="submit" value="Cash down">
+                <input type="submit" value="Cancel">
+            </div>
+            <!-- <button type="button" onclick="cancleForm()">Cancle</button> -->
+        </form>
+    </div>
+    <button type="button" class="btn btn-primary btn_invoice d-none" data-bs-toggle="modal"
+        data-bs-target="#invoice_modal">
+        Test Button
+    </button>
+
+    <section class="footer">
+        <div class="footerContainer">
+            <div class="footerBox">
+                <a class="pagename" href="">Transport<span>U</span></a>
+                <div class="socal">
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-twitter"></i>
                 </div>
             </div>
+<<<<<<< HEAD
            
         <form id="userForm" method="post" action="/user/register" class="userForm">
             <h4>Fill your information</h4>
@@ -169,29 +192,77 @@
                 <i class="fa-brands fa-facebook"></i>
                 <i class="fa-brands fa-instagram"></i>
                 <i class="fa-brands fa-twitter"></i>
+=======
+            <div class="footerBox">
+                <h3>Page</h3>
+                <a href="">Home</a>
+                <a href="">bus</a>
+                <a href="">ship</a>
+                <a href="">plane</a>
+                <a href="">about us</a>
+            </div>
+            <div class="footerBox">
+                <h3>legal</h3>
+                <a href="">Privicy</a>
+                <a href="">Refund Policy</a>
+                <a href="">cookies Policy</a>
+            </div>
+            <div class="footerBox">
+                <h3>Contact us</h3>
+                <p>Yangon</p>
+                <p>Sittwe</p>
+                <p>09898495517</p>
+>>>>>>> b6d2a8056e61ba3753a436a26acc823b19b74f80
             </div>
         </div>
-        <div class="footerBox">
-            <h3>Page</h3>
-            <a href="">Home</a>
-            <a href="">bus</a>
-            <a href="">ship</a>
-            <a href="">plane</a>
-            <a href="">about us</a>
-        </div>
-        <div class="footerBox">
-            <h3>legal</h3>
-            <a href="">Privicy</a>
-            <a href="">Refund Policy</a>
-            <a href="">cookies Policy</a>
-        </div>
-        <div class="footerBox">
-            <h3>Contact us</h3>
-            <p>Yangon</p>
-            <p>Sittwe</p>
-            <p>09898495517</p>
+        <div class="copyright">@2023 TransportU.com</div>
+    </section>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="invoice_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="invoice">
+                    <h5 class="modal-title text-center" id="exampleModalLabel">Invoice Of Transport U</h5>
+                    <h6 class="mb-4 text-center">
+                        <span id="route_start" style="color: black!important;">Test City</span> - <span id="route_end"
+                            style="color: black!important;">Test City</span>
+                    </h6>
+
+                    <table class="w-100" style="background-color: rgb(207, 206, 206)!important; color:rgb(0, 0, 0)!important;"
+                        style="width: 100%;">
+                        <tr>
+                            <th> Seats No</th>
+                            <th>One Seat</th>
+                            <th> Amount</th>
+                        </tr>
+                        <tr>
+                            <td id="seat_invoice">1,2,5</td>
+                            <td id="one_seat_price">2000</td>
+                            <td class="seat_total_price">60000</td>
+                        </tr>
+                       
+                    </table>
+                    <div class="card-body text-center mt-4">
+                        Thanks for your booking . See you at <span style="color: #2f4f4f;" id="route_Date"></span> .
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="/homepage" type="button" class="btn btn-secondary" >Back to home</a>
+                    <button type="button" class="btn btn-primary" id="print">Print</button>
+                </div>
+            </div>
         </div>
     </div>
+<<<<<<< HEAD
     <div class="copyright">@2023 TransportU.com</div>
 </section>
 <script src="/bootstrap/js/bootstrap.min.js"></script>
@@ -214,6 +285,122 @@
 
     });
 </script>
+=======
+>>>>>>> b6d2a8056e61ba3753a436a26acc823b19b74f80
 
-    </body>
+    <div id="printFrameArea">
+        <!-- <iframe name="print_frame" width="0" height="0" frameborder="0" class="" src="about:blank"></iframe> -->
+    </div>
+
+
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="/DataTables/jQuery-3.7.0/jquery-3.7.0.min.js"></script>
+
+    <script>
+        let choose_seat = [];
+
+        $(document).ready((e) => {
+            $.ajax({
+                url: '/seat/take/<%=route_id%>',
+                type: "GET",
+                // data: JSON.stringify(prepareData), // Convert the object to JSON
+                // contentType: "application/json",   // Use JSON content type
+                success: function (response) {
+                    console.log("hello")
+                    let seats = response.seats;
+                    seats.forEach((seat) => {
+                        let seatTaken = $(`td[data-id='${seat.seat_no}']`);
+                        $(`td[data-id=${seat.seat_no}]`).addClass('bg-warning');
+                    })
+                    console.log("response", response);
+                    // Handle successful response here
+                },
+                error: function (error) {
+                    // Handle error here
+                }
+            });
+
+        })
+
+
+
+
+        $(document).on("click", "td", (e) => {
+            let seat_no = $(e.currentTarget).data('id');
+            if (!$(e.currentTarget).hasClass('bg-warning')) {
+
+                if (choose_seat.includes(seat_no)) {
+                    $(e.currentTarget).removeClass("bg-primary")
+                    const index = choose_seat.indexOf(seat_no);
+                    if (index !== -1) {
+                        choose_seat.splice(index, 1);
+                    }
+                } else {
+                    $(e.currentTarget).addClass("bg-primary")
+                    choose_seat.push(seat_no);
+                    console.log("Choose Seat", choose_seat)
+                }
+
+            }
+        })
+
+        $("#userForm").submit((e) => {
+            e.preventDefault();
+            const form = document.getElementById("userForm");
+
+            let prepareData = {
+                name: $("#name").val(),
+                gender: $("#gender  option:selected").val(),
+                email: $("#email").val(),
+                address: $("#address").val(),
+                phone: $("#phone").val(),
+                nrc: $("#nrc").val(),
+                seats: choose_seat,
+                route_id: $("#route_id").val()
+            }
+            $.ajax({
+                url: '/user/register',
+                type: "POST",
+                data: JSON.stringify(prepareData), // Convert the object to JSON
+                contentType: "application/json",   // Use JSON content type
+                success: function (response) {
+                    console.log("hello")
+                    let route_data = response.route_data;
+                    $("#route_start").text(route_data.start_location);
+                    $("#route_end").text(route_data.end_location);
+                    $("#seat_invoice").text(choose_seat.toString());
+                    $("#one_seat_price").text(route_data.price);
+                    $("#route_Date").text(route_data.departure_date);
+                    let total = parseInt(route_data.price) * parseInt(choose_seat.length);
+
+                    $(".seat_total_price").text(total);
+                    console.log("hello", total)
+                    $(".btn_invoice").trigger("click");
+                    // Handle successful response here
+                },
+                error: function (error) {
+                    // Handle error here
+                }
+            });
+        })
+
+        $("#print").click(() => {
+            $("#printFrameArea").empty();
+            $("#printFrameArea").html('<iframe name="print_frame" width="100" height="0" frameborder="0" class="" src="about:blank"></iframe>')
+
+            
+            window.frames["print_frame"].document.body.innerHTML = document.getElementById("invoice").innerHTML;
+            window.frames["print_frame"].window.focus();
+            window.frames["print_frame"].window.print();
+            setTimeout(() => {
+                location.reload(true)
+            }, 1000);
+            // location.reload(true)
+        })
+    </script>
+    <!-- <script src="/script/script.js"></script> -->
+
+</body>
+
 </html>

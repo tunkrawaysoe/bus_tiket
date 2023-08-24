@@ -32,15 +32,35 @@ router.get('/homepage/detail', function(req, res, next){
 })
 
 router.post('/user/register',function(req,res){
+  console.log("req.body", req.body)
   let route_id = req.body.route_id;
+  let seats = req.body.seats;
   delete req.body.route_id;
+  delete req.body.seats;
+
+  // let seatsConfirm;
+  //         seats.forEach((seat) => {
+  //           userModel.takeCheckSeat(route_id, seat, (err, result) => {
+  //             if(err){
+  //               console.log(err);
+  //              return  res.send(err);
+  //             }else{
+  //               console.log("resultsssss", result)
+  //               if(result == false){
+  //                 seatsConfirm = false;
+  //                 return  res.status(200).json({
+  //                   status : 0,
+  //                 })
+  //               }
+  //             }
+  //       })
+  // })
+  
   userModel.addUser(req.body, function(err, result){
     if(err){
       res.send(err);
     }else{
-
       var user_id = result.insertId;
-
       let prepareDataForTicket = {
         ticket_number : null,
         user_id : user_id,
@@ -52,11 +72,28 @@ router.post('/user/register',function(req,res){
       userModel.createTicket(prepareDataForTicket, function(err, result){
         if(err){
           res.send(err); 
+          console.log("err",err)
         }else{
-          res.send("Thanks For Your Booking");
+          seats.forEach((seat) => {
+            userModel.takeSeat(route_id, user_id, seat, (err, result) => {
+              if(err){
+                console.log(err);
+               return  res.send(err);
+              }
+            })
+          })
+          userModel.routeSearchById(route_id, (err, result) => {
+            if(err){
+              return res.send(err);
+            }else{
+              res.status(200).json({
+                status : 1,
+                route_data : result
+              })
+            }
+          })
         }
       })
-    
     }
   })
  })
@@ -91,9 +128,32 @@ router.post('/user/register',function(req,res){
 
  router.get('/user/register/:id', function(req, res) {
    var route_id = req.params.id;
-   res.render('user_info', {
-    route_id : route_id
-   });
+   userModel.checkSeat(route_id, (err, result) => {
+    if(err){
+      return res.send("Fail");
+    }else{
+      console.log("result", result)
+      res.render('user_info', {
+        route_id : route_id,
+        seats : result
+       });
+    }
+   })
+ 
+ })
+
+ router.get('/seat/take/:id', function(req, res){
+    var route_id = req.params.id;
+    console.log("route_id", route_id)
+    userModel.checkSeat(route_id, (err, seats) => {
+      if(err){
+        return res.send("Fail");
+      }else{
+        res.status(200).json({
+          seats
+        })
+      }
+     })
  })
  router.get('/vouncher', function(req, res, next){
   res.render('vouncher');

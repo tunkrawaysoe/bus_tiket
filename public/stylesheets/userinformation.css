@@ -184,7 +184,7 @@ a{
 }
 /* set */
 .set{
-    width: 40%;
+    width: 80%;
 }
 .set .setcontainer{
     width: 100%;
@@ -196,6 +196,12 @@ a{
     justify-content: center;
     align-items: center;
 }
+
+@media screen and (min-width: 800px) {
+    .set {
+        width: 30%;
+    }
+  }
 
 .driver{
     width:90%;
